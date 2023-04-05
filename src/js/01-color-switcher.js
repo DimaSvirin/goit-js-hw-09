@@ -31,7 +31,6 @@ function onStopBtnClick() {
   stopBtn.disabled = true;
   colorStart = false;
   clearInterval(intervalForColor);
-  //   bodyEL.style.backgroundColor = '#ffffff';
 }
 
 function getRandomHexColor() {
