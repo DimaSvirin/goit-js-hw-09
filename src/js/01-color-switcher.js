@@ -5,15 +5,23 @@ const bodyEL = document.querySelector('body');
 
 let intervalForColor = null;
 let colorStart = false;
-stopBtn.disabled = true;
+
+function btnClicked(value) {
+  if (value) {
+    startBtn.disabled = false;
+    stopBtn.disabled = true;
+  } else {
+    startBtn.disabled = true;
+    stopBtn.disabled = false;
+  }
+}
 
 startBtn.addEventListener('click', onStartBtnClick);
 stopBtn.addEventListener('click', onStopBtnClick);
 
 function onStartBtnClick() {
   changeColor();
-  startBtn.disabled = true;
-  stopBtn.disabled = false;
+  btnClicked(!true);
 }
 
 function changeColor() {
@@ -27,8 +35,7 @@ function changeColor() {
 }
 
 function onStopBtnClick() {
-  startBtn.disabled = false;
-  stopBtn.disabled = true;
+  btnClicked(true);
   colorStart = false;
   clearInterval(intervalForColor);
 }
